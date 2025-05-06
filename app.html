@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Blocker</title>
+    <style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(120deg, #f0f4f8, #e8f0ff);
+    color: #333;
+}
+
+header {
+    background: linear-gradient(to right, #007BFF, #00C6FF);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+header h1 {
+    margin: 0;
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+}
+
+.app-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 30px;
+    gap: 30px;
+}
+
+.app-item {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 280px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.app-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.app-item img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s;
+    margin-bottom: 10px;
+}
+.app-item img:hover {
+    transform: scale(1.1);
+}
+
+.app-item input[type="number"] {
+    padding: 8px;
+    margin-top: 8px;
+    width: 70%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.2s;
+}
+.app-item input:focus {
+    border-color: #007BFF;
+}
+
+.stopwatch {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.buttons button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.start {
+    background-color: #28a745;
+    color: white;
+}
+.start:hover {
+    background-color: #218838;
+}
+
+.stop {
+    background-color: #dc3545;
+    color: white;
+}
+.stop:hover {
+    background-color: #c82333;
+}
+
+.reset {
+    background-color: #ffc107;
+    color: black;
+}
+.reset:hover {
+    background-color: #e0a800;
+}
+
+a[href="index.html"] {
+    display: inline-block;
+    margin-top: 30px;
+    margin-left: 48%;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(to right, #007BFF, #00C6FF);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+a[href="index.html"]:hover {
+    background: linear-gradient(to right, #0056b3, #0099cc);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Website Blocker</h1>
+    </header>
+    
+    <div class="app-container">
+        <!-- Instagram -->
+        <div class="app-item">
+            <a href="https://www.instagram.com" target="_blank"><img src="images/instgram.jpg" alt="Instagram"></a>
+            <input type="number" id="time1" placeholder="Set time (sec)">
+            <div class="stopwatch" id="stopwatch1">00:00</div>
+            <div class="buttons">
+                <button class="start" onclick="startTimer(1, 'timeout.html')">Start</button>
+                <button class="stop" onclick="stopTimer(1)">Stop</button>
+                <button class="reset" onclick="resetTimer(1)">Reset</button>
+            </div>
+        </div>
+
+        <!-- Facebook -->
+        <div class="app-item">
+            <a href="https://www.facebook.com" target="_blank"><img src="images/facebook.jpeg" alt="Facebook"></a>
+            <input type="number" id="time2" placeholder="Set time (sec)">
+            <div class="stopwatch" id="stopwatch2">00:00</div>
+            <div class="buttons">
+                <button class="start" onclick="startTimer(2, 'timeout.html')">Start</button>
+                <button class="stop" onclick="stopTimer(2)">Stop</button>
+                <button class="reset" onclick="resetTimer(2)">Reset</button>
+            </div>
+        </div>
+
+        <!-- Telegram -->
+        <div class="app-item">
+            <a href="https://desktop.telegram.org/" target="_blank"><img src="images/telegram.jpeg" alt="Telegram"></a>
+            <input type="number" id="time3" placeholder="Set time (sec)">
+            <div class="stopwatch" id="stopwatch3">00:00</div>
+            <div class="buttons">
+                <button class="start" onclick="startTimer(3, 'timeout.html')">Start</button>
+                <button class="stop" onclick="stopTimer(3)">Stop</button>
+                <button class="reset" onclick="resetTimer(3)">Reset</button>
+            </div>
+        </div>
+
+        <!-- Free Fire -->
+        <div class="app-item">
+            <a href="https://ff.garena.com/" target="_blank"><img src="images/free fire.jpeg" alt="Free Fire"></a>
+            <input type="number" id="time4" placeholder="Set time (sec)">
+            <div class="stopwatch" id="stopwatch4">00:00</div>
+            <div class="buttons">
+                <button class="start" onclick="startTimer(4, 'timeout.html')">Start</button>
+                <button class="stop" onclick="stopTimer(4)">Stop</button>
+                <button class="reset" onclick="resetTimer(4)">Reset</button>
+            </div>
+        </div>
+
+        <!-- PUBG -->
+        <div class="app-item">
+            <a href="https://www.battlegroundsmobileindia.com/" target="_blank"><img src="images/pubg.jpeg" alt="PUBG"></a>
+            <input type="number" id="time5" placeholder="Set time (sec)">
+            <div class="stopwatch" id="stopwatch5">00:00</div>
+            <div class="buttons">
+                <button class="start" onclick="startTimer(5, 'timeout.html')">Start</button>
+                <button class="stop" onclick="stopTimer(5)">Stop</button>
+                <button class="reset" onclick="resetTimer(5)">Reset</button>
+            </div>
+        </div>
+        
+    </div>
+    <a href="index.html">Back</a>
+    <script>
+        let timers = {};
+
+        function startTimer(id, nextPage) {
+            if (!timers[id]) {
+                let inputTime = document.getElementById("time" + id).value;
+                let totalTime = parseInt(inputTime);
+                if (isNaN(totalTime) || totalTime <= 0) {
+                    alert("Please enter a valid time in seconds.");
+                    return;
+                }
+                let seconds = 0;
+                timers[id] = setInterval(() => {
+                    seconds++;
+                    document.getElementById("stopwatch" + id).innerText = seconds.toString().padStart(2, '0') + ":00";
+                    if (seconds >= totalTime) { 
+                        clearInterval(timers[id]);
+                        window.location.href = nextPage;
+                    }
+                }, 1000);
+            }
+        }
+        
+        function stopTimer(id) {
+            clearInterval(timers[id]);
+            timers[id] = null;
+        }
+        
+        function resetTimer(id) {
+            clearInterval(timers[id]);
+            timers[id] = null;
+            document.getElementById("stopwatch" + id).innerText = "00:00";
+            document.getElementById("time" + id).value = "";
+        }
+    </script>
+
+    <footer>
+        <p>&copy; 2025 Your Website. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

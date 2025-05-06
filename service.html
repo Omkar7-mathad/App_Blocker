@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Blocker Simulation</title>
+    <style>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f8f9fa;
+    color: #333;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #007BFF;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+#websiteInput {
+    padding: 10px;
+    width: 300px;
+    max-width: 90%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    margin-right: 10px;
+    transition: border-color 0.3s ease;
+}
+#websiteInput:focus {
+    border-color: #007BFF;
+}
+
+button {
+    padding: 10px 20px;
+    background: linear-gradient(to right, #007BFF, #00C6FF);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+button:hover {
+    background: linear-gradient(to right, #0056b3, #0099cc);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.blocked-sites {
+    margin-top: 40px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.blocked-sites h3 {
+    margin-bottom: 15px;
+    color: #444;
+}
+
+#blockedList {
+    list-style-type: none;
+    padding: 0;
+}
+#blockedList li {
+    padding: 8px 12px;
+    margin: 6px 0;
+    background-color: #f1f3f5;
+    border-left: 4px solid #007BFF;
+    border-radius: 6px;
+    text-align: left;
+    font-size: 15px;
+}
+
+    </style>
+</head>
+<body>
+
+<h1>App Blocker Simulation</h1>
+<p>Enter a website URL to block:</p>
+<input type="text" id="websiteInput" placeholder="example.com">
+<button onclick="blockWebsite()">Block Website</button>
+
+<div class="blocked-sites">
+    <h3>Blocked Websites:</h3>
+    <ul id="blockedList"></ul>
+</div>
+<a href="index.html" style="text-decoration: none; color: white; background-color: #007BFF; padding: 8px 16px; border-radius: 4px; font-family: Arial, sans-serif;">Back</a>
+<script>
+    let blockedSites = [];
+
+    function blockWebsite() {
+        let website = document.getElementById("websiteInput").value.trim();
+        if (website && !blockedSites.includes(website)) {
+            blockedSites.push(website);
+            updateBlockedList();
+            alert(website + " has been blocked!");
+        }
+        document.getElementById("websiteInput").value = '';  // Clear the input field
+    }
+
+    function updateBlockedList() {
+        let list = document.getElementById("blockedList");
+        list.innerHTML = '';
+        blockedSites.forEach(site => {
+            let li = document.createElement("li");
+            li.textContent = site;
+            list.appendChild(li);
+        });
+    }
+
+    // Simulating the website block action
+    function checkBlockedSite() {
+        let currentSite = window.location.hostname;
+        if (blockedSites.includes(currentSite)) {
+            alert("Access to this site is blocked.");
+            window.location.href = "about:blank";  // Redirecting to a blank page
+        }
+    }
+
+    // Call checkBlockedSite when the page loads
+    window.onload = checkBlockedSite;
+</script>
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign In</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-top: 1rem;
+    }
+
+    button:hover {
+      background: #1e40af;
+    }
+
+    .create-account {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .create-account a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    .social-buttons {
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .social-buttons p {
+      margin-bottom: 1rem;
+      color: #666;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .social-icons button {
+      border: none;
+      background: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 50%;
+      transition: background 0.3s;
+    }
+
+    .social-icons .google { color: #db4437; }
+    .social-icons .twitter { color: #1da1f2; }
+    .social-icons .facebook { color: #3b5998; }
+
+    .social-icons button:hover {
+      background: #eee;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Sign In</h2>
+    <form id="signInForm">
+      <input type="email" placeholder="Email" required />
+      <input type="password" placeholder="Password" required />
+      <button type="submit">Sign In</button>
+    </form>
+    <div class="create-account">
+      Don’t have an account? <a href="#">Create one</a>
+    </div>
+    <div class="social-buttons">
+      <p>Or sign in with</p>
+      <div class="social-icons">
+        <button class="google" title="Sign in with Google"><i class="fab fa-google"></i></button>
+        <button class="twitter" title="Sign in with Twitter"><i class="fab fa-twitter"></i></button>
+        <button class="facebook" title="Sign in with Facebook"><i class="fab fa-facebook-f"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("signInForm").addEventListener("submit", function(e) {
+      e.preventDefault(); // Prevent form from submitting
+      alert("You are signed in successfully.");
+    });
+  </script>
+</body>
+</html>
